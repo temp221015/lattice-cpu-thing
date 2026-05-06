@@ -8,7 +8,9 @@ entity Main is
 		
 		io_write_data : in STD_LOGIC_VECTOR(31 downto 0);
 		io_write_addr : in STD_LOGIC_VECTOR(15 downto 0);
-		io_write_en   : in STD_LOGIC
+		io_write_en   : in STD_LOGIC;
+		
+		io_debugport  : out STD_LOGIC_VECTOR(31 downto 0)
 	);
 end Main;
 
@@ -24,7 +26,6 @@ architecture Behavioral of Main is
 	
 	-- InstrRAM
 	signal read_addr : STD_LOGIC_VECTOR (15 downto 0);
-	signal read_data : STD_LOGIC_VECTOR (31 downto 0);
 	
 	-- RegisterFile
 	signal reg_A  : STD_LOGIC_VECTOR (3 downto 0) := "0000";
@@ -96,6 +97,8 @@ begin
 		data_C => data_C,
 		we_C => we_C
 	);
+	
+	io_debugport <= data_C;
 	
 
 end Behavioral;

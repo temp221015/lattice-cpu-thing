@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
-use STD.TEXTIO.ALL;
+--use STD.TEXTIO.ALL;
 
 entity Decoder is
     Port ( clk    : in STD_LOGIC;
@@ -36,7 +36,7 @@ begin
             if pc1 = reg_exp_pc then
                 reg_miss <= '0';
                 
-                opcode <= instr1(7 downto 0);
+                reg_opcode <= instr1(7 downto 0);
                 reg_A  <= instr1(11 downto 8);
                 reg_B  <= instr1(15 downto 12);
                 reg_C  <= instr1(19 downto 16);
@@ -59,7 +59,7 @@ begin
 				--	& ")" & LF
 				--);
                 reg_miss <= '1';
-                opcode <= x"00"; -- Send a NOP to the Executor stage
+                reg_opcode <= x"00"; -- Send a NOP to the Executor stage
             end if;
         end if; 
     end process;

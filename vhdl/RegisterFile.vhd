@@ -18,9 +18,16 @@ begin
 
 process(clk)
 begin
+
+	--stub
+
 	if rising_edge(clk) then
 		data_B <= data_C;
 	end if;
+	
+	data_A <= x"FFFFFFFF";
+	data_B <= x"FFFFFFFF";
+	flags <= x"FFFF";
 end process;
 
 end Behavioral;

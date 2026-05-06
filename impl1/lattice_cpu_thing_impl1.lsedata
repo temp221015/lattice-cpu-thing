@@ -1,8 +1,8 @@
 <top name = "Main"  library = "work"  arch = "RTL"  entry = "VHDL">
 
 <clocks>
-    <clockitem name = "ram_clock"  type = "port" />
     <clockitem name = "sys_clock"  type = "port" />
+    <clockitem name = "ram_clock"  type = "port" />
 </clocks>
 
 <!--
