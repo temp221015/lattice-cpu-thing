@@ -50,10 +50,10 @@ begin
         
         -- On branch miss from the Decoder
         if miss = '1' and reg_miss1 /= '1' then
-			write(output, "(" & time'image(NOW) & ") BranchPredictor: Storing branch "
-				& "from pc=" & integer'image(to_integer(unsigned(reg_pc3)))
-				& " to pc"  & integer'image(to_integer(unsigned(exp_pc))) & LF
-			);
+			--write(output, "(" & time'image(NOW) & ") BranchPredictor: Storing branch "
+			--	& "from pc=" & integer'image(to_integer(unsigned(reg_pc3)))
+			--	& " to pc"  & integer'image(to_integer(unsigned(exp_pc))) & LF
+			--);
 
             -- Update the BTB record
             idx := to_integer(unsigned(reg_pc3(7 downto 0)));           
@@ -71,10 +71,10 @@ begin
                -- 2) the "enabled" bit (at index 24) is '1'
                if LUT(idx)(7 downto 0) = reg_pc0(15 downto 8) and LUT(idx)(24) = '1' then
 
-                    write(output, "(" & time'image(NOW) & ") BranchPredictor: Predicting branch "
-						& "from pc=" & integer'image(to_integer(unsigned(reg_pc0)))
-						& " to pc="  & integer'image(to_integer(unsigned(LUT(idx)(23 downto 8)))) & LF
-					);
+                    --write(output, "(" & time'image(NOW) & ") BranchPredictor: Predicting branch "
+					--	& "from pc=" & integer'image(to_integer(unsigned(reg_pc0)))
+					--	& " to pc="  & integer'image(to_integer(unsigned(LUT(idx)(23 downto 8)))) & LF
+					--);
 
                     reg_pc0 <= LUT(idx)(23 downto 8);
                -- Otherwise we just increase the PC by 1

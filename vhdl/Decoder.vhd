@@ -43,21 +43,21 @@ begin
                 
                 -- Bit 31 means unconditional jump, set PC <= lower 16 bits of instr
                 if instr1(31) = '1' then
-                    write(output, "(" & time'image(NOW) & ")         Decoder: Branching "
-						& "from pc=" & integer'image(to_integer(unsigned(pc1)))
-						& " to pc="  & integer'image(to_integer(unsigned(instr1(15 downto 0)))) & LF
-					);
+                    --write(output, "(" & time'image(NOW) & ")         Decoder: Branching "
+					--	& "from pc=" & integer'image(to_integer(unsigned(pc1)))
+					--	& " to pc="  & integer'image(to_integer(unsigned(instr1(15 downto 0)))) & LF
+					--);
                     reg_exp_pc <= std_logic_vector(unsigned(instr1(15 downto 0)));
                 -- All other instructions just increase the PC by 1
                 else
                     reg_exp_pc <= std_logic_vector(unsigned(reg_exp_pc) + 1);
                 end if;
             else
-                write(output, "(" & time'image(NOW) & ")         Decoder: Mispredict ("
-					& "exp_pc=" & integer'image(to_integer(unsigned(reg_exp_pc)))
-					& " pc1="   & integer'image(to_integer(unsigned(pc1)))
-					& ")" & LF
-				);
+                --write(output, "(" & time'image(NOW) & ")         Decoder: Mispredict ("
+				--	& "exp_pc=" & integer'image(to_integer(unsigned(reg_exp_pc)))
+				--	& " pc1="   & integer'image(to_integer(unsigned(pc1)))
+				--	& ")" & LF
+				--);
                 reg_miss <= '1';
                 opcode <= x"00"; -- Send a NOP to the Executor stage
             end if;
