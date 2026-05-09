@@ -53,7 +53,7 @@ begin
 		io_write_addr <= x"0004";
 		wait for 2 ns; ram_clock <= '1';
 		wait for 5 ns; ram_clock <= '0';
-		wait for 35 ns;
+		wait for 45 ns;
 		io_write_en   <= '0';
 		
 		-- Now run 30 cycles with ram_clock and sys_clock

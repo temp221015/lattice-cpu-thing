@@ -10,7 +10,7 @@ entity Main is
 		io_write_addr : in STD_LOGIC_VECTOR(15 downto 0);
 		io_write_en   : in STD_LOGIC;
 		
-		io_debugport  : out STD_LOGIC_VECTOR(31 downto 0)
+		io_debugport  : out STD_LOGIC_VECTOR(7 downto 0)
 	);
 end Main;
 
@@ -98,7 +98,6 @@ begin
 		we_C => we_C
 	);
 	
-	io_debugport <= data_C;
+	io_debugport <= opcode;
 	
-
 end Behavioral;
