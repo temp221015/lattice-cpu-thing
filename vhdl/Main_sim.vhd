@@ -1,6 +1,5 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL; 
---use IEEE.NUMERIC_STD.ALL;
 
 entity Main_sim is
 end Main_sim;

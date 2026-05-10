@@ -83,7 +83,7 @@ begin
 		data_A => data_A,
 		data_B => data_B,
 		data_C => data_C,
-        
+		
 		flags  => flags,
 		we_C   => we_C
 	);
