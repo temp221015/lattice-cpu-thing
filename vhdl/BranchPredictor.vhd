@@ -61,17 +61,17 @@ begin
 			reg_pc0 <= exp_pc;
 		-- No branch miss, so perform a prediction
 		else
-			   idx := to_integer(unsigned(reg_pc0(7 downto 0)));
+			idx := to_integer(unsigned(reg_pc0(7 downto 0)));
 			
-			   -- We index using the lower 8 bits of the 16-bit PC, and have a branch table hit
-			   -- when the "tag" holds the upper 8 bits.
-			   if LUT(idx)(7 downto 0) = reg_pc0(15 downto 8) then
-				   my_write("(" & my_strnow & ") BranchPredictor: Predicting branch from pc=" & my_slv2str(reg_pc0) & " to pc="  & my_slv2str(LUT(idx)(23 downto 8)) & LF);
-					reg_pc0 <= LUT(idx)(23 downto 8);
-			   else
-					-- Otherwise we just increase the PC by 1
-					reg_pc0 <= std_logic_vector( unsigned(reg_pc0) + 1);
-			   end if;
+			-- We index using the lower 8 bits of the 16-bit PC, and have a branch table hit
+			-- when the "tag" holds the upper 8 bits.
+			if LUT(idx)(7 downto 0) = reg_pc0(15 downto 8) then
+				my_write("(" & my_strnow & ") BranchPredictor: Predicting branch from pc=" & my_slv2str(reg_pc0) & " to pc="  & my_slv2str(LUT(idx)(23 downto 8)) & LF);
+				reg_pc0 <= LUT(idx)(23 downto 8);
+			else
+				-- Otherwise we just increase the PC by 1
+				reg_pc0 <= std_logic_vector( unsigned(reg_pc0) + 1);
+			end if;
 		end if;        
 	end if;
 end process;

@@ -4,20 +4,20 @@ use IEEE.NUMERIC_STD.ALL;
 use work.helpers.ALL;
 
 entity Decoder is
-	port ( clk    : in STD_LOGIC;
-		   instr1 : in STD_LOGIC_VECTOR (31 downto 0);
-		   pc1    : in STD_LOGIC_VECTOR (15 downto 0);
-		   miss   : out STD_LOGIC;
-		   exp_pc : out STD_LOGIC_VECTOR (15 downto 0);
-		   opcode : out STD_LOGIC_VECTOR (7 downto 0);
-		   
-		   reg_A  : out STD_LOGIC_VECTOR (3 downto 0);
-		   reg_B  : out STD_LOGIC_VECTOR (3 downto 0);
-		   reg_C  : out STD_LOGIC_VECTOR (3 downto 0);
-		   
-		   flags  : in STD_LOGIC_VECTOR(15 downto 0)
-	);
-		   
+	port (
+		clk    : in STD_LOGIC;
+		instr1 : in STD_LOGIC_VECTOR (31 downto 0);
+		pc1    : in STD_LOGIC_VECTOR (15 downto 0);
+		miss   : out STD_LOGIC;
+		exp_pc : out STD_LOGIC_VECTOR (15 downto 0);
+		opcode : out STD_LOGIC_VECTOR (7 downto 0);
+
+		reg_A  : out STD_LOGIC_VECTOR (3 downto 0);
+		reg_B  : out STD_LOGIC_VECTOR (3 downto 0);
+		reg_C  : out STD_LOGIC_VECTOR (3 downto 0);
+
+		flags  : in STD_LOGIC_VECTOR(15 downto 0)
+	);	   
 end Decoder;
 
 architecture Behavioral of Decoder is
